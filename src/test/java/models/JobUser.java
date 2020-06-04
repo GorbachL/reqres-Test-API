@@ -14,4 +14,5 @@ public class JobUser {
     String job;
     String id;
     String createdAt;
+    String updatedAt;
 }

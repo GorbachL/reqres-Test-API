@@ -40,4 +40,37 @@ public class UsersAdapter extends MainAdapter {
 
         return gson.fromJson(response.asString().trim(), UsersList.class);
     }
+
+    public JobUser put(JobUser user) {
+
+        Response response =
+                given()
+                        .header(HTTP.CONTENT_TYPE, ContentType.JSON)
+                        .body(gson.toJson(user))
+                        .when()
+                        .put("https://reqres.in/api/users/2")
+                        .then()
+                        .statusCode(200)
+                        .contentType(ContentType.JSON).extract().response();
+
+        return gson.fromJson(response.asString().trim(), JobUser.class);
+
+    }
+
+    public JobUser patch(JobUser user) {
+
+        Response response =
+                given()
+                        .header(HTTP.CONTENT_TYPE, ContentType.JSON)
+                        .body(gson.toJson(user))
+                        .when()
+                        .put("https://reqres.in/api/users/2")
+                        .then()
+                        .statusCode(200)
+                        .contentType(ContentType.JSON).extract().response();
+
+        return gson.fromJson(response.asString().trim(), JobUser.class);
+    }
+
 }
+

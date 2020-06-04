@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class UsersList {
+public class ResourceList {
 
     @Expose
     int page;
@@ -20,5 +20,5 @@ public class UsersList {
     @Expose
     int totalPages;
     @Expose
-    List<User> data;
+    List<Resource> data;
 }
