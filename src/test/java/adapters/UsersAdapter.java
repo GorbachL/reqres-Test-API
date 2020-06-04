@@ -41,14 +41,14 @@ public class UsersAdapter extends MainAdapter {
         return gson.fromJson(response.asString().trim(), UsersList.class);
     }
 
-    public JobUser put(JobUser user) {
+    public JobUser put(JobUser user, int id) {
 
         Response response =
                 given()
                         .header(HTTP.CONTENT_TYPE, ContentType.JSON)
                         .body(gson.toJson(user))
                         .when()
-                        .put("https://reqres.in/api/users/2")
+                        .put(String.format("https://reqres.in/api/users/%s", id))
                         .then()
                         .statusCode(200)
                         .contentType(ContentType.JSON).extract().response();
@@ -57,14 +57,14 @@ public class UsersAdapter extends MainAdapter {
 
     }
 
-    public JobUser patch(JobUser user) {
+    public JobUser patch(JobUser user, int id) {
 
         Response response =
                 given()
                         .header(HTTP.CONTENT_TYPE, ContentType.JSON)
                         .body(gson.toJson(user))
                         .when()
-                        .put("https://reqres.in/api/users/2")
+                        .patch(String.format("https://reqres.in/api/users/%s", id))
                         .then()
                         .statusCode(200)
                         .contentType(ContentType.JSON).extract().response();

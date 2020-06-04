@@ -8,11 +8,14 @@ import lombok.Data;
 @AllArgsConstructor
 public class JobUser {
 
-    @Expose
+    @Expose //(serialize = true, deserialize = true)
     String name;
     @Expose
     String job;
     String id;
     String createdAt;
+    @Expose
     String updatedAt;
+
+
 }
